@@ -27,7 +27,7 @@ public class FachadaAnimal {
         ra.validaNome(animal.getNome());
         ra.validaEspecie(animal.getEspecie());
         ra.validarSexo(animal.getSexo());
-        ra.validarIdCliente(animal.getCodigoCliente());
+        ra.validarIdCliente(animal.getIdCliente());
         ra.verificaDuplicidade(animal);
         ra.inserirAnimal(animal);
     }

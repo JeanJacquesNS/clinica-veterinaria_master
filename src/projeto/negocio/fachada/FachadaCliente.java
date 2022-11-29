@@ -74,9 +74,9 @@ public class FachadaCliente  {
      * @throws ConexaoException
      * @throws DaoException 
      */
-    public int consultarCodigoCliente (String cpf) throws RegraExceptionCliente, ConexaoException, DaoException{
-        rn.validaDocumento(cpf);
-        int codigoCliente = rn.consultarCodigoCliente(cpf);
+    public int consultarCodigoCliente (String nrDocumento) throws RegraExceptionCliente, ConexaoException, DaoException{
+        rn.validaDocumento(nrDocumento);
+        int codigoCliente = rn.consultarCodigoCliente(nrDocumento);
         return codigoCliente;
     }
     

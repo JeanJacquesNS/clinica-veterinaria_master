@@ -14,7 +14,7 @@ import projeto.util.Msg;
 
 /**
  * 
- * @author Geraldo
+ * @author 
  */
 
 public class AnimalDAOImpl implements AnimalDAO {
@@ -35,19 +35,20 @@ public class AnimalDAOImpl implements AnimalDAO {
         
         Connection con = ger.abrirConexao();
         Animal animal = null;
-        String sql = "SELECT * FROM ANIMAL WHERE ANI_CODIGO = ?";
+        String sql = "SELECT * FROM ANIMAL WHERE idAnimal = ?";
         try{
             PreparedStatement pstm = con.prepareStatement(sql);
             pstm.setInt(1,id);
             ResultSet result = pstm.executeQuery();
             if(result.next()){
                 animal = new Animal();
-                animal.setCodigoAnimal(result.getInt("ANI_CODIGO"));
-                animal.setNome(result.getString("ANI_NOME"));
-                animal.setEspecie(result.getString("ANI_ESPECIE"));
-                animal.setDataNascimento(result.getString("ANI_NASCIMENTO"));
-                animal.setCpfCliente(result.getString("CPF_CLIENTE"));
-                animal.setSexo("ANI_SEXO");         
+                animal.setIdAnimal(result.getInt("idAnimal"));
+                animal.setNome(result.getString("nome"));
+                animal.setEspecie(result.getString("especie"));
+                animal.setDataNascimento(result.getString("data_nascimento"));
+                animal.setNrDocumento(result.getString("nrDocumento"));
+                animal.setSexo(result.getString("sexo"));
+                animal.setIdCliente(result.getInt("idCliente"));
             }
             return animal; 
         }catch(SQLException e){
@@ -67,14 +68,15 @@ public class AnimalDAOImpl implements AnimalDAO {
     public void inserir(Animal animal) throws ConexaoException, DaoException {
        
         Connection con = ger.abrirConexao();
-        String sql = "INSERT INTO ANIMAL (ANI_NOME,ANI_ESPECIE,ANI_NASCIMENTO,ANI_SEXO,CPF_CLIENTE) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO animal (nome,nrDocumento,especie,sexo,data_nascimento,idCliente) VALUES (?,?,?,?,?,?)";
         try {
             PreparedStatement pstm = con.prepareStatement(sql);
             pstm.setString(1, animal.getNome());
-            pstm.setString(2, animal.getEspecie());
-            pstm.setString(3, animal.getDataNascimento());
+            pstm.setString(2, animal.getNrDocumento());
+            pstm.setString(3, animal.getEspecie());
             pstm.setString(4, animal.getSexo());
-            pstm.setString(5, animal.getCpfCliente());
+            pstm.setString(5, animal.getDataNascimento());
+            pstm.setInt(6, animal.getIdCliente());
             pstm.executeUpdate();  
             Msg.msgSucesso("Animal inserido com sucesso!", "Inserido com sucesso!");
         } catch (SQLException ex) {
@@ -86,18 +88,18 @@ public class AnimalDAOImpl implements AnimalDAO {
 
     /**
      * Metodo para deletar animal no banco de dados.
-     * @param codigoAnimal
+     * @param idAnimal
      * @throws ConexaoException
      * @throws DaoException 
      */
     @Override
-    public void deletar(int codigoAnimal) throws ConexaoException, DaoException {
+    public void deletar(int idAnimal) throws ConexaoException, DaoException {
         
         Connection con = ger.abrirConexao();
-        String sql = "DELETE FROM ANIMAL WHERE ANI_CODIGO = ?";
+        String sql = "DELETE FROM ANIMAL WHERE idAnimal = ?";
         try {
             PreparedStatement pstm = con.prepareStatement(sql);
-            pstm.setInt(1, codigoAnimal);
+            pstm.setInt(1, idAnimal);
             pstm.executeUpdate();
             Msg.msgSucesso("Animal deletado com sucesso!", "Deletado do banco de dados!");
         } catch (SQLException ex) {
@@ -117,15 +119,15 @@ public class AnimalDAOImpl implements AnimalDAO {
     public void atualizar(Animal animal) throws ConexaoException, DaoException {
        
         Connection con = ger.abrirConexao();
-        String sql = "UPDATE animal SET ANI_NOME = ?,ANI_ESPECIE = ?, ANI_NASCIMENTO = ?, ANI_SEXO = ?, CPF_CLIENTE = ? WHERE ANI_CODIGO = ?";
+        String sql = "UPDATE animal SET nome = ?, nrDocumento = ?, especie = ?, sexo = ?, data_nascimento = ? WHERE idAnimal = ?";
         try { 
             PreparedStatement pstm = con.prepareStatement(sql);
             pstm.setString(1, animal.getNome());
-            pstm.setString(2, animal.getEspecie());
-            pstm.setString(3, animal.getDataNascimento());
+            pstm.setString(2, animal.getNrDocumento());
+            pstm.setString(3, animal.getEspecie());
             pstm.setString(4, animal.getSexo());
-            pstm.setString(5, animal.getCpfCliente());
-            pstm.setInt(6, animal.getCodigoAnimal());
+            pstm.setString(5, animal.getDataNascimento());
+            pstm.setInt(6, animal.getIdAnimal());
             pstm.executeUpdate();   
             Msg.msgSucesso("Animal alterado com sucesso", "Sucesso ao alterar");
         } catch (SQLException ex) {
@@ -153,12 +155,13 @@ public class AnimalDAOImpl implements AnimalDAO {
             ResultSet result = pstm.executeQuery();
             while (result.next()){
                 animal = new Animal();
-                animal.setCodigoAnimal(result.getInt("ANI_CODIGO"));
-                animal.setEspecie(result.getString("ANI_ESPECIE"));
-                animal.setNome(result.getString("ANI_NOME"));
-                animal.setSexo(result.getString("ANI_SEXO"));
-                animal.setDataNascimento(result.getString("ANI_NASCIMENTO"));
-                animal.setCpfCliente(result.getString("CPF_CLIENTE"));
+                animal.setIdAnimal(result.getInt("idAnimal"));
+                animal.setEspecie(result.getString("especie"));
+                animal.setNome(result.getString("nome"));
+                animal.setSexo(result.getString("sexo"));
+                animal.setDataNascimento(result.getString("data_nascimento"));
+                animal.setNrDocumento(result.getString("nrDocumento"));
+                animal.setIdCliente(result.getInt("idCliente"));
                  
                 ListaA.add(animal);
             }

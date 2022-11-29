@@ -17,7 +17,7 @@ import projeto.util.Msg;
 
 /**
  *
- * @author aluno
+ * @author 
  */
 public class TelaAnimal extends javax.swing.JFrame {
 
@@ -46,11 +46,11 @@ public class TelaAnimal extends javax.swing.JFrame {
         txtNomeAnimal = new javax.swing.JTextField();
         txtEspecie = new javax.swing.JTextField();
         btnCadastrarAnimal = new javax.swing.JButton();
-        cbSexoCadastroAnimal = new javax.swing.JComboBox<>();
+        cbSexo = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        txtCpfClienteAnimal = new javax.swing.JFormattedTextField();
         jLabel6 = new javax.swing.JLabel();
         txtDataNascimentoAnimal = new javax.swing.JFormattedTextField();
+        txtNrDocumento = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro Animal");
@@ -98,24 +98,16 @@ public class TelaAnimal extends javax.swing.JFrame {
             }
         });
 
-        cbSexoCadastroAnimal.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cbSexoCadastroAnimal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Macho", "Fêmea" }));
-        cbSexoCadastroAnimal.addActionListener(new java.awt.event.ActionListener() {
+        cbSexo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Macho", "Fêmea" }));
+        cbSexo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbSexoCadastroAnimalActionPerformed(evt);
+                cbSexoActionPerformed(evt);
             }
         });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("Documento do Cliente (dono) :");
-
-        try {
-            txtCpfClienteAnimal.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###-####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        txtCpfClienteAnimal.setToolTipText("");
-        txtCpfClienteAnimal.setName("txtCpfClienteAnimal"); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setText("Data de Nascimento :");
@@ -126,13 +118,15 @@ public class TelaAnimal extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        txtNrDocumento.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtNrDocumento.setText("Número do documento");
+        txtNrDocumento.setToolTipText("");
+        txtNrDocumento.setCaretPosition(0);
+
         javax.swing.GroupLayout AnimalLayout = new javax.swing.GroupLayout(Animal);
         Animal.setLayout(AnimalLayout);
         AnimalLayout.setHorizontalGroup(
             AnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AnimalLayout.createSequentialGroup()
-                .addComponent(btnCadastrarAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(150, 150, 150))
             .addGroup(AnimalLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(AnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,7 +143,7 @@ public class TelaAnimal extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addGap(85, 85, 85)
                                 .addComponent(txtNomeAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AnimalLayout.createSequentialGroup()
+                            .addGroup(AnimalLayout.createSequentialGroup()
                                 .addGroup(AnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AnimalLayout.createSequentialGroup()
                                         .addComponent(jLabel5)
@@ -157,13 +151,16 @@ public class TelaAnimal extends javax.swing.JFrame {
                                     .addGroup(AnimalLayout.createSequentialGroup()
                                         .addComponent(jLabel3)
                                         .addGap(134, 134, 134)))
-                                .addGroup(AnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cbSexoCadastroAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(AnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtCpfClienteAnimal, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                        .addComponent(txtEspecie))
-                                    .addComponent(txtDataNascimentoAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap())))
+                                .addGroup(AnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEspecie, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                    .addComponent(txtDataNascimentoAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNrDocumento))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AnimalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnCadastrarAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(143, 143, 143))
         );
         AnimalLayout.setVerticalGroup(
             AnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,25 +169,28 @@ public class TelaAnimal extends javax.swing.JFrame {
                 .addGroup(AnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtNomeAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(AnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtCpfClienteAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(AnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AnimalLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel5))
+                    .addGroup(AnimalLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(txtNrDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(AnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(AnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(cbSexoCadastroAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19)
                 .addGroup(AnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtDataNascimentoAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(btnCadastrarAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addGap(22, 22, 22))
         );
 
         jPanel1.add(Animal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 53, 410, 300));
@@ -213,10 +213,10 @@ public class TelaAnimal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastrarAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarAnimalActionPerformed
-        String sexo = cbSexoCadastroAnimal.getItemAt(WIDTH);
+        String sexo = cbSexo.getItemAt(WIDTH);
         String sexoInc;
         int codigoCliente = 0;
-        String cpfConverte = txtCpfClienteAnimal.getText().replaceAll("[^0-9]", "");
+        String nrDocumento = txtNrDocumento.getText();
 
         switch(sexo){
             case "Macho" : sexoInc = "M";
@@ -228,7 +228,7 @@ public class TelaAnimal extends javax.swing.JFrame {
 
         FachadaCliente fachadaCliente = new FachadaCliente();
         try {
-            codigoCliente = fachadaCliente.consultarCodigoCliente(txtCpfClienteAnimal.getText().replaceAll("[^0-9]", ""));
+            codigoCliente = fachadaCliente.consultarCodigoCliente(txtNrDocumento.getText());
         } catch (RegraExceptionCliente ex) {
             Msg.msgErro("Erro ao buscar o ID do cliente Animal " + ex.getMessage(),"ERRO!");
         } catch (ConexaoException ex) {
@@ -241,9 +241,9 @@ public class TelaAnimal extends javax.swing.JFrame {
         animal.setNome(txtNomeAnimal.getText());
         animal.setEspecie(txtEspecie.getText());
         animal.setSexo(sexoInc);
-        animal.setCpfCliente(cpfConverte);
+        animal.setNrDocumento(nrDocumento);
         animal.setDataNascimento(String.valueOf(txtDataNascimentoAnimal.getText()));
-        animal.setCodigoCliente(codigoCliente);
+        animal.setIdCliente(codigoCliente);
 
         /**
         * Instanciando uma nova fachada para tratar a manipulacao dos dados.
@@ -257,9 +257,9 @@ public class TelaAnimal extends javax.swing.JFrame {
             fachada.inserirAnimal(animal);
             txtNomeAnimal.setText("");
             txtEspecie.setText("");
-            txtCpfClienteAnimal.setText("");
+            txtNrDocumento.setText("");
             txtDataNascimentoAnimal.setText("");
-            cbSexoCadastroAnimal.setSelectedItem("Selecione");
+            cbSexo.setSelectedItem("Selecione");
 
         }catch(RegraExceptionAnimal ex ){
             JOptionPane.showMessageDialog(this , "Erro ao inserir Animal " + ex.getMessage(),"ERRO!",JOptionPane.ERROR_MESSAGE);
@@ -278,9 +278,9 @@ public class TelaAnimal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeAnimalActionPerformed
 
-    private void cbSexoCadastroAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSexoCadastroAnimalActionPerformed
+    private void cbSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSexoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbSexoCadastroAnimalActionPerformed
+    }//GEN-LAST:event_cbSexoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -323,7 +323,7 @@ public class TelaAnimal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Animal;
     private javax.swing.JButton btnCadastrarAnimal;
-    private javax.swing.JComboBox<String> cbSexoCadastroAnimal;
+    private javax.swing.JComboBox<String> cbSexo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -331,9 +331,9 @@ public class TelaAnimal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JFormattedTextField txtCpfClienteAnimal;
     private javax.swing.JFormattedTextField txtDataNascimentoAnimal;
     private javax.swing.JTextField txtEspecie;
     private javax.swing.JTextField txtNomeAnimal;
+    private javax.swing.JTextField txtNrDocumento;
     // End of variables declaration//GEN-END:variables
 }

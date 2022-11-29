@@ -66,7 +66,7 @@ public class RegraAnimal {
      */
     public void verificaDuplicidade(Animal animal)throws RegraExceptionAnimal {
         try{
-            Animal a1 = animalDao.consultar(animal.getCodigoAnimal());
+            Animal a1 = animalDao.consultar(animal.getIdAnimal());
             if(a1 != null){
                 throw new RegraExceptionAnimal("Animal ja cadastrado");
             }

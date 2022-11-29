@@ -48,11 +48,10 @@ public class TelaConsultaAnimal extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtNomeAnimal = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtCpfClienteAnimal = new javax.swing.JFormattedTextField();
         jLabel4 = new javax.swing.JLabel();
         txtEspecie = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        cbSexoCadastroAnimal = new javax.swing.JComboBox<>();
+        cboSexo = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         txtDataNascimentoAnimal = new javax.swing.JFormattedTextField();
         jButtonAlterar = new javax.swing.JButton();
@@ -61,10 +60,13 @@ public class TelaConsultaAnimal extends javax.swing.JFrame {
         jButtonDeletar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtIdAnimal = new javax.swing.JTextField();
+        txtNrDocumento = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jTableAnimal.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -97,13 +99,6 @@ public class TelaConsultaAnimal extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("CPF do Cliente (dono) :");
 
-        try {
-            txtCpfClienteAnimal.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        txtCpfClienteAnimal.setEnabled(false);
-
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("Espécie :");
 
@@ -117,9 +112,9 @@ public class TelaConsultaAnimal extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setText("Sexo :");
 
-        cbSexoCadastroAnimal.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cbSexoCadastroAnimal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Macho", "Fêmea" }));
-        cbSexoCadastroAnimal.setEnabled(false);
+        cboSexo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cboSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Macho", "Fêmea" }));
+        cboSexo.setEnabled(false);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel7.setText("Data de Nascimento :");
@@ -140,6 +135,9 @@ public class TelaConsultaAnimal extends javax.swing.JFrame {
             }
         });
 
+        jButtonCancelar.setBackground(new java.awt.Color(255, 0, 0));
+        jButtonCancelar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projeto/gui/icones/excluir.png"))); // NOI18N
         jButtonCancelar.setText("Cancelar");
         jButtonCancelar.setEnabled(false);
@@ -149,6 +147,9 @@ public class TelaConsultaAnimal extends javax.swing.JFrame {
             }
         });
 
+        jButtonSalvar.setBackground(new java.awt.Color(0, 153, 0));
+        jButtonSalvar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonSalvar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projeto/gui/icones/salvar_1.png"))); // NOI18N
         jButtonSalvar.setText("Salvar");
         jButtonSalvar.setEnabled(false);
@@ -158,6 +159,9 @@ public class TelaConsultaAnimal extends javax.swing.JFrame {
             }
         });
 
+        jButtonDeletar.setBackground(new java.awt.Color(255, 0, 0));
+        jButtonDeletar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonDeletar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projeto/gui/icones/trash.gif"))); // NOI18N
         jButtonDeletar.setText("Deletar");
         jButtonDeletar.setEnabled(false);
@@ -172,6 +176,8 @@ public class TelaConsultaAnimal extends javax.swing.JFrame {
 
         txtIdAnimal.setEnabled(false);
 
+        txtNrDocumento.setEnabled(false);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -184,18 +190,6 @@ public class TelaConsultaAnimal extends javax.swing.JFrame {
                         .addGap(120, 120, 120)
                         .addComponent(txtIdAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(42, 42, 42)
-                        .addComponent(txtNomeAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(jButtonAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(11, 11, 11)
-                        .addComponent(txtCpfClienteAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(140, 140, 140)
-                        .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addGap(91, 91, 91)
                         .addComponent(txtEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -204,14 +198,28 @@ public class TelaConsultaAnimal extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addGap(105, 105, 105)
-                        .addComponent(cbSexoCadastroAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cboSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(150, 150, 150)
                         .addComponent(jButtonDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addGap(22, 22, 22)
                         .addComponent(txtDataNascimentoAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtNrDocumento))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(42, 42, 42)
+                                .addComponent(txtNomeAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonCancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -233,11 +241,11 @@ public class TelaConsultaAnimal extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonCancelar)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(8, 8, 8)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(txtCpfClienteAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(10, 10, 10)
+                            .addComponent(txtNrDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonSalvar)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -252,7 +260,7 @@ public class TelaConsultaAnimal extends javax.swing.JFrame {
                         .addGap(10, 10, 10)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
-                            .addComponent(cbSexoCadastroAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(cboSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
@@ -262,10 +270,7 @@ public class TelaConsultaAnimal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(0, 102, 204));
-
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Controle Animal");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -273,16 +278,16 @@ public class TelaConsultaAnimal extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(167, 167, 167)
+                .addGap(201, 201, 201)
                 .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(29, 29, 29)
                 .addComponent(jLabel2)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -330,11 +335,13 @@ public class TelaConsultaAnimal extends javax.swing.JFrame {
         try {
             Animal a = f.consultarAnimal(codigo);
             
-            txtIdAnimal.setText(String.valueOf(a.getCodigoAnimal()));
+            txtIdAnimal.setText(String.valueOf(a.getIdAnimal()));
             txtNomeAnimal.setText(a.getNome());
             txtEspecie.setText(a.getEspecie());
             txtDataNascimentoAnimal.setText(a.getDataNascimento());
-            txtCpfClienteAnimal.setText(a.getCpfCliente());
+            txtNrDocumento.setText(a.getNrDocumento());
+            String sexo=a.getSexo().equals("M")?"Macho":"Fêmea";
+            cboSexo.setSelectedItem(sexo);
             
             jButtonAlterar.setEnabled(true);
             jButtonDeletar.setEnabled(true);
@@ -360,15 +367,15 @@ public class TelaConsultaAnimal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
-        String cpfConverte = txtCpfClienteAnimal.getText().replaceAll("[^0-9]", "");
-        String sexo = cbSexoCadastroAnimal.getItemAt(WIDTH).equals("Macho")? "M":"F";
+        String cpfConverte = txtNrDocumento.getText();
+        String sexo = cboSexo.getItemAt(WIDTH).equals("Macho")? "M":"F";
 
         Animal a = new Animal();
         FachadaAnimal f = new FachadaAnimal();
-        a.setCodigoAnimal(Integer.parseInt(txtIdAnimal.getText()));
+        a.setIdAnimal(Integer.parseInt(txtIdAnimal.getText()));
         a.setNome(txtNomeAnimal.getText());
         a.setEspecie(txtEspecie.getText());
-        a.setCpfCliente(cpfConverte);
+        a.setNrDocumento(cpfConverte);
         a.setDataNascimento(txtDataNascimentoAnimal.getText());
         a.setSexo(sexo);
 
@@ -426,11 +433,11 @@ public class TelaConsultaAnimal extends javax.swing.JFrame {
         FachadaAnimal fachadaAnimal = new FachadaAnimal();
         List<Animal> listaAnimal = new ArrayList<Animal>();
         ArrayList data = new ArrayList();
-        String [] colunas = new String []{"Id", "Nome", "Especie", "Sexo", "Data Nascimento","CPF Dono"};
+        String [] colunas = new String []{"Id", "Nome", "Especie", "Sexo", "Data Nascimento","Número do doc.Dono"};
         try {
             listaAnimal = fachadaAnimal.listarAnimal();
             for(Animal lAnimal : listaAnimal){
-                data.add(new Object[]{lAnimal.getCodigoAnimal(),lAnimal.getNome(),lAnimal.getEspecie(),lAnimal.getSexo(),lAnimal.getDataNascimento(),lAnimal.getCpfCliente()});
+                data.add(new Object[]{lAnimal.getIdAnimal(),lAnimal.getNome(),lAnimal.getEspecie(),lAnimal.getSexo(),lAnimal.getDataNascimento(),lAnimal.getNrDocumento()});
             }
         } catch (RegraExceptionAnimal | ConexaoException | DaoException ex) {
             Msg.msgErro(ex.getMessage(),"Erro ao listar os animais");
@@ -457,29 +464,29 @@ public class TelaConsultaAnimal extends javax.swing.JFrame {
     }
     
     public void limparCampos(){
-        txtCpfClienteAnimal.setText("");
+        txtNrDocumento.setText("");
         txtDataNascimentoAnimal.setText("");
         txtEspecie.setText("");
         txtNomeAnimal.setText("");
         txtIdAnimal.setText("");
-        cbSexoCadastroAnimal.setSelectedItem("Selecione");
+        cboSexo.setSelectedItem("Selecione");
     }
     
     public void habilitarCampos(){
-        txtCpfClienteAnimal.setEnabled(true);
+        txtNrDocumento.setEnabled(true);
         txtDataNascimentoAnimal.setEnabled(true);
         txtEspecie.setEnabled(true);
         txtNomeAnimal.setEnabled(true);
-        cbSexoCadastroAnimal.setEnabled(true);
+        cboSexo.setEnabled(true);
     }
     
     public void desabilitarCampos(){
-        txtCpfClienteAnimal.setEnabled(false);
+        txtNrDocumento.setEnabled(false);
         txtDataNascimentoAnimal.setEnabled(false);
         txtEspecie.setEnabled(false);
         txtNomeAnimal.setEnabled(false);
         txtIdAnimal.setEnabled(false);
-        cbSexoCadastroAnimal.setEnabled(false);
+        cboSexo.setEnabled(false);
     }
     
     /**
@@ -519,7 +526,7 @@ public class TelaConsultaAnimal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cbSexoCadastroAnimal;
+    private javax.swing.JComboBox<String> cboSexo;
     private javax.swing.JButton jButtonAlterar;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonDeletar;
@@ -535,10 +542,10 @@ public class TelaConsultaAnimal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableAnimal;
-    private javax.swing.JFormattedTextField txtCpfClienteAnimal;
     private javax.swing.JFormattedTextField txtDataNascimentoAnimal;
     private javax.swing.JTextField txtEspecie;
     private javax.swing.JTextField txtIdAnimal;
     private javax.swing.JTextField txtNomeAnimal;
+    private javax.swing.JTextField txtNrDocumento;
     // End of variables declaration//GEN-END:variables
 }

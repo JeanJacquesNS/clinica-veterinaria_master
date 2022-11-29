@@ -139,10 +139,10 @@ public class RegraCliente {
      * @throws ConexaoException
      * @throws DaoException 
      */
-    public int consultarCodigoCliente(String cpf) throws RegraExceptionCliente, ConexaoException, DaoException{
+    public int consultarCodigoCliente(String nrDocumento) throws RegraExceptionCliente, ConexaoException, DaoException{
         int codigoCliente = 0;
         try{
-            codigoCliente = clienteDao.consultarId(cpf);
+            codigoCliente = clienteDao.consultarId(nrDocumento);
         }catch(ConexaoException | DaoException e){
             throw new RegraExceptionCliente(e.getMessage());
         }
