@@ -109,3 +109,38 @@ values ('admin','admin','10455804494','n')
 
 insert into funcionario (FUN_NOME,FUN_CPF,FUN_TELEFONE,FUN_EMAIL,FUN_CARGO) 
 values ('Jean','10455804494','81995211262','jean.m17','dona')
+
+
+    use clinica_veterinaria;
+create table cliente
+(
+    idCliente      int auto_increment
+        primary key,
+    nome           varchar(50) not null,
+    sexo           varchar(10) not null,
+    tipo_documento varchar(20) not null,
+    nr_documento   varchar(20) not null,
+    telefone       varchar(20) not null,
+    telefone_2     varchar(20) null,
+    bairro         varchar(50) null,
+    avenida        varchar(50) null,
+    rua            varchar(50) null,
+    constraint cliente_nr_documento_uindex
+        unique (nr_documento)
+);
+
+create table animal
+(
+    idAnimal        int auto_increment
+        primary key,
+    nome            varchar(50) not null,
+    nrDocumento     varchar(20) not null,
+    especie         varchar(50) null,
+    sexo            char        not null,
+    data_nascimento varchar(10) not null,
+    idCliente       int         not null,
+    constraint animal_cliente_idCliente_fk
+        foreign key (idCliente) references cliente (idCliente),
+    constraint animal_cliente_nr_documento_fk
+        foreign key (nrDocumento) references cliente (nr_documento)
+);
