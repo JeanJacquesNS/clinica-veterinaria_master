@@ -49,7 +49,6 @@ public class FachadaFuncionario {
      */
     public void alterarFuncionario(Funcionario funcionario) throws RegraExceptionFuncionario,DaoException, ConexaoException{
         regraFunc.validaFuncionario(funcionario);
-        regraFunc.verificaDuplicidade(funcionario);
         regraFunc.alterarFuncionario(funcionario);
     }
     

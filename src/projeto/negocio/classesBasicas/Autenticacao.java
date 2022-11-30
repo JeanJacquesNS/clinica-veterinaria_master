@@ -10,65 +10,42 @@ public class Autenticacao {
     private String login;
     private String pass;
     private String primeiroAcesso;
-    private String funCpf;
-    
-    
-    /**
-     * @return the login
-     */
+    private String nrDocumento_func;
+
+    public Autenticacao() {
+    }
+
     public String getLogin() {
         return login;
     }
 
-    /**
-     * @param login the login to set
-     */
     public void setLogin(String login) {
         this.login = login;
     }
 
-    /**
-     * @return the pass
-     */
     public String getPass() {
         return pass;
     }
 
-    /**
-     * @param pass the pass to set
-     */
     public void setPass(String pass) {
         this.pass = pass;
     }
 
-    /**
-     * @return the superuser
-     */
     public String getPrimeiroAcesso() {
         return primeiroAcesso;
     }
 
-    /**
-     * @param primeioAcesso
-     */
-    public void setPrimeiroAcesso(String primeioAcesso) {
-        this.primeiroAcesso = primeioAcesso;
+    public void setPrimeiroAcesso(String primeiroAcesso) {
+        this.primeiroAcesso = primeiroAcesso;
     }
 
-    /**
-     * @return the codigoFuncionario
-     */
-    public String getFunCpf() {
-        return funCpf;
+    public String getNrDocumento_func() {
+        return nrDocumento_func;
     }
 
-    /**
-     * @param funCpf
-     */
-    public void setFunCpf(String funCpf) {
-        this.funCpf = funCpf;
+    public void setNrDocumento_func(String nrDocumento_func) {
+        this.nrDocumento_func = nrDocumento_func;
     }
-    
     
     
 }

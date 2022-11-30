@@ -34,7 +34,7 @@ public class RegraFuncionario {
         if(funcionario.getNome().length() < 3){
             throw new RegraExceptionFuncionario("O nome do funcionario deve ter no minimo 3 caracteres");
         }
-        if(funcionario.getCpf().isEmpty()){
+        if(funcionario.getNrDocumento().isEmpty()){
             throw new RegraExceptionFuncionario("O CPF do funcionario nao pode ser deixado em branco!");
         }
         if(funcionario.getTelefone().isEmpty()){
@@ -52,7 +52,7 @@ public class RegraFuncionario {
      */
     public void verificaDuplicidade(Funcionario funcionario) throws RegraExceptionFuncionario{
         try{
-            if(daoFunc.consultar(funcionario.getCpf()) == null){
+            if(daoFunc.consultar(funcionario.getNrDocumento()) != null){
                 throw new RegraExceptionFuncionario("Funcionario Já consta no banco de dados");
             }
         }catch(ConexaoException e){

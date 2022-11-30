@@ -24,7 +24,7 @@ public class ConsultaDAOImpl implements ConsultaDAO{
 
    /**
     * Metodo para listar o agendamento de uma consulta.
-    * @param codigoConsulta
+    * @param idConsulta
     * @return consulta
     * @throws ConexaoException
     * @throws DaoException 

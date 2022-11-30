@@ -64,8 +64,8 @@ public class TelaFuncionario extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtFuncId = new javax.swing.JTextField();
-        txtFuncNome = new javax.swing.JTextField();
+        txtId = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         cboSexo = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
@@ -88,7 +88,9 @@ public class TelaFuncionario extends javax.swing.JFrame {
 
         jPanel1.setToolTipText("");
 
-        btnCadastrarFuncionario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnCadastrarFuncionario.setBackground(new java.awt.Color(0, 153, 0));
+        btnCadastrarFuncionario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnCadastrarFuncionario.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastrarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projeto/gui/icones/salvar_1.png"))); // NOI18N
         btnCadastrarFuncionario.setText("Salvar");
         btnCadastrarFuncionario.setEnabled(false);
@@ -125,6 +127,9 @@ public class TelaFuncionario extends javax.swing.JFrame {
             }
         });
 
+        jButtonCancelar.setBackground(new java.awt.Color(255, 0, 0));
+        jButtonCancelar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projeto/gui/icones/excluir.png"))); // NOI18N
         jButtonCancelar.setText("Cancelar");
         jButtonCancelar.setEnabled(false);
@@ -134,6 +139,9 @@ public class TelaFuncionario extends javax.swing.JFrame {
             }
         });
 
+        jButtonDeletar.setBackground(new java.awt.Color(255, 0, 0));
+        jButtonDeletar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonDeletar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projeto/gui/icones/trash.gif"))); // NOI18N
         jButtonDeletar.setText("Deletar");
         jButtonDeletar.setEnabled(false);
@@ -152,10 +160,7 @@ public class TelaFuncionario extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(0, 102, 204));
-
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Cadastro de Funcionários");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -204,7 +209,7 @@ public class TelaFuncionario extends javax.swing.JFrame {
                     .addComponent(txtAvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtRua, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(271, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,12 +237,12 @@ public class TelaFuncionario extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("Nome :");
 
-        txtFuncId.setEnabled(false);
+        txtId.setEnabled(false);
 
-        txtFuncNome.setEnabled(false);
-        txtFuncNome.addActionListener(new java.awt.event.ActionListener() {
+        txtNome.setEnabled(false);
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFuncNomeActionPerformed(evt);
+                txtNomeActionPerformed(evt);
             }
         });
 
@@ -269,14 +274,14 @@ public class TelaFuncionario extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addGap(56, 56, 56)
-                        .addComponent(txtFuncId, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel8))
                         .addGap(36, 36, 36)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtFuncNome)
+                            .addComponent(txtNome)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(cboSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
@@ -288,11 +293,11 @@ public class TelaFuncionario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(txtFuncId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtFuncNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -384,7 +389,7 @@ public class TelaFuncionario extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addGap(44, 44, 44)
                 .addComponent(comboFuncCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(383, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -402,8 +407,12 @@ public class TelaFuncionario extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 735, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -414,18 +423,8 @@ public class TelaFuncionario extends javax.swing.JFrame {
                                 .addComponent(jButtonAlterar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jButtonCancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(btnCadastrarFuncionario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButtonDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(25, 25, 25))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 735, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jButtonDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -476,33 +475,38 @@ public class TelaFuncionario extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtFuncNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFuncNomeActionPerformed
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtFuncNomeActionPerformed
+    }//GEN-LAST:event_txtNomeActionPerformed
 
     private void btnCadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarFuncionarioActionPerformed
 
         FachadaFuncionario fachadaFunc = new FachadaFuncionario();
         FachadaAutenticacao fachadaAutenticacao = new FachadaAutenticacao();
-        String cpfFormater = txtNrDocumento.getText().replaceAll("[^0-9]", "");
-        String telFormater = txtTelefone.getText().replaceAll("[^0-9]", "");
+        String nrDocumento = txtNrDocumento.getText();
         
-        Funcionario funcionario = new Funcionario();
-        funcionario.setNome(txtFuncNome.getText());
-        funcionario.setCpf(cpfFormater);
-        funcionario.setTelefone(telFormater);
-        funcionario.setEmail(txtEmail.getText());
-        funcionario.setCargo(comboFuncCargo.getSelectedItem()+"");
+        Funcionario func = new Funcionario();
+        func.setNome(txtNome.getText());
+        func.setSexo(cboSexo.getSelectedItem().toString());
+        func.setCargo(comboFuncCargo.getSelectedItem().toString());
+        func.setTipoDocumento(cboDocumento.getSelectedItem().toString());
+        func.setNrDocumento(txtNrDocumento.getText());
+        func.setTelefone(txtTelefone.getText());
+        func.setTelefone2(txtTelefone2.getText());
+        func.setEmail(txtEmail.getText());
+        func.setBairro(txtBairro.getText());
+        func.setAvenida(txtAvenida.getText());
+        func.setRua(txtRua.getText());
         
         Autenticacao autenticacao = new Autenticacao();
-        autenticacao.setFunCpf(cpfFormater);
-        autenticacao.setLogin(cpfFormater);
+        autenticacao.setNrDocumento_func(nrDocumento);
+        autenticacao.setLogin(nrDocumento);
         autenticacao.setPass("12345");
         autenticacao.setPrimeiroAcesso("Y");
         
         if(acao == 1){
             try{
-                fachadaFunc.cadastrarFuncionario(funcionario);
+                fachadaFunc.cadastrarFuncionario(func);
                 fachadaAutenticacao.inserirCredenciais(autenticacao);
             } catch (RegraExceptionFuncionario ex) {
                 Msg.msgErro(ex.getMessage(),"Erro ao inserir");
@@ -516,9 +520,9 @@ public class TelaFuncionario extends javax.swing.JFrame {
         }
         
         if(acao == 2){
-            funcionario.setIdFuncionario(Integer.parseInt(txtFuncId.getText()));
+            func.setIdFuncionario(Integer.parseInt(txtId.getText()));
             try {
-                fachadaFunc.alterarFuncionario(funcionario);
+                fachadaFunc.alterarFuncionario(func);
             } catch (RegraExceptionFuncionario ex) {
                 Msg.msgErro("Nao foi possivel alterar o funcionario no banco de dados","Erro ao inserir");
             } catch (DaoException ex) {
@@ -570,7 +574,7 @@ public class TelaFuncionario extends javax.swing.JFrame {
 
         FachadaFuncionario fachada = new FachadaFuncionario();
         try {
-            fachada.deletarFuncionario(Integer.parseInt(txtFuncId.getText()));
+            fachada.deletarFuncionario(Integer.parseInt(txtId.getText()));
         } catch (RegraExceptionFuncionario ex) {
             Msg.msgErro("Nao foi possivel deletar o funcionario no banco de dados","Erro ao Deletar");
         } catch (DaoException ex) {
@@ -604,16 +608,22 @@ public class TelaFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonNovoActionPerformed
 
     private void jTableFuncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableFuncMouseClicked
-        String cpfFunc = String.valueOf(jTableFunc.getValueAt(jTableFunc.getSelectedRow(), 2));
+        String nrDocumento = String.valueOf(jTableFunc.getValueAt(jTableFunc.getSelectedRow(), 5));
         
         FachadaFuncionario fachadaFuncionario = new FachadaFuncionario();
         try{
-            Funcionario funcionario = fachadaFuncionario.consultarFuncionario(cpfFunc);
-            txtFuncId.setText(String.valueOf(funcionario.getCodigoFuncionario()));
-            txtFuncNome.setText(funcionario.getNome());
-            txtNrDocumento.setText(funcionario.getCpf());
+            Funcionario funcionario = fachadaFuncionario.consultarFuncionario(nrDocumento);
+            txtId.setText(String.valueOf(funcionario.getIdFuncionario()));
+            txtNome.setText(funcionario.getNome());
+            txtNrDocumento.setText(funcionario.getNrDocumento());
             txtEmail.setText(funcionario.getEmail());
             txtTelefone.setText(funcionario.getTelefone());
+            txtTelefone2.setText(funcionario.getTelefone2());
+            txtBairro.setText(funcionario.getBairro());
+            txtAvenida.setText(funcionario.getAvenida());
+            txtRua.setText(funcionario.getRua());
+            cboSexo.setSelectedItem(funcionario.getSexo());
+            cboDocumento.setSelectedItem(funcionario.getTipoDocumento());
             comboFuncCargo.setSelectedItem(funcionario.getCargo());
             jButtonAlterar.setEnabled(true);
             jButtonDeletar.setEnabled(true);
@@ -640,11 +650,11 @@ public class TelaFuncionario extends javax.swing.JFrame {
         FachadaFuncionario fachadaFuncionario = new FachadaFuncionario();
         List<Funcionario> listaFuncionario = new ArrayList<Funcionario>();
         ArrayList data = new ArrayList();
-        String [] colunas = new String []{"Id", "Nome", "CPF", "EMAIL", "Telefone","Cargo"};
+        String [] colunas = new String []{"Id", "Nome", "Sexo","Cargo", "Documento", "Número Doc","Telefone","Telefone 2","E-mail","Bairro","Avenida","Rua"};
         try {
             listaFuncionario = fachadaFuncionario.listarFuncionarios();
             for(Funcionario lFunc : listaFuncionario){
-                data.add(new Object[]{lFunc.getCodigoFuncionario(),lFunc.getNome(),lFunc.getCpf(),lFunc.getEmail(),lFunc.getTelefone(), lFunc.getCargo()});
+                data.add(new Object[]{lFunc.getIdFuncionario(),lFunc.getNome(),lFunc.getSexo(),lFunc.getCargo(),lFunc.getTipoDocumento(),lFunc.getNrDocumento(),lFunc.getTelefone(),lFunc.getTelefone2(),lFunc.getEmail(),lFunc.getBairro(),lFunc.getAvenida(),lFunc.getRua()});
             }
         } catch (RegraExceptionFuncionario | ConexaoException | DaoException ex) {
             Msg.msgErro("Não foi possivel listar os funcionarios.","Erro ao listar os Funcionarios");
@@ -674,34 +684,55 @@ public class TelaFuncionario extends javax.swing.JFrame {
      * Metodo para limpar os campos do formulário
      */
     public void limparCampos(){
-        txtFuncId.setText("");
-        txtFuncNome.setText("");
+        txtId.setText("");
+        txtNome.setText("");
         txtNrDocumento.setText("");
         txtTelefone.setText("");
         txtEmail.setText("");
         comboFuncCargo.setSelectedItem("Selecione o Cargo");
+        cboSexo.setSelectedIndex(0);
+        cboDocumento.setSelectedIndex(0);
+        txtTelefone2.setText("");
+        txtBairro.setText("");
+        txtAvenida.setText("");
+        txtRua.setText("");
+        
     }
     
     /**
      * Metodo para desabilitar a edição dos campos do formulario
      */
     public void desativaCampos(){
-        txtFuncNome.setEnabled(false);
+        txtNome.setEnabled(false);
         txtNrDocumento.setEnabled(false);
         txtTelefone.setEnabled(false);
         txtEmail.setEnabled(false);
         comboFuncCargo.setEnabled(false);
+        txtTelefone2.setEnabled(false);
+        txtEmail.setEnabled(false);
+        txtBairro.setEnabled(false);
+        txtAvenida.setEnabled(false);
+        txtRua.setEnabled(false);
+        cboSexo.setEnabled(false);
+        cboDocumento.setEnabled(false);
     }
     
     /**
      * Metodo para ativar os campos do formulario
      */
     public void ativaCampos(){
-        txtFuncNome.setEnabled(true);
+        txtNome.setEnabled(true);
         txtNrDocumento.setEnabled(true);
         txtTelefone.setEnabled(true);
         txtEmail.setEnabled(true);
         comboFuncCargo.setEnabled(true);
+        txtTelefone2.setEnabled(true);
+        txtEmail.setEnabled(true);
+        txtBairro.setEnabled(true);
+        txtAvenida.setEnabled(true);
+        txtRua.setEnabled(true);
+        cboSexo.setEnabled(true);
+        cboDocumento.setEnabled(true);
     }
     
     /**
@@ -772,8 +803,8 @@ public class TelaFuncionario extends javax.swing.JFrame {
     private javax.swing.JTextField txtAvenida;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtFuncId;
-    private javax.swing.JTextField txtFuncNome;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNrDocumento;
     private javax.swing.JTextField txtRua;
     private javax.swing.JTextField txtTelefone;

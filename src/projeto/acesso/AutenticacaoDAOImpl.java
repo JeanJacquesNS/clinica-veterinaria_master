@@ -15,7 +15,7 @@ import projeto.util.Msg;
 
 /**
  *
- * @author Mario
+ * @author 
  */
 public class AutenticacaoDAOImpl implements AutenticacaoDAO{
     
@@ -34,7 +34,7 @@ public class AutenticacaoDAOImpl implements AutenticacaoDAO{
     public Autenticacao checarAutenticacao(String login, String pass) throws AutenticacaoException, ConexaoException, DaoException {
         Connection con = ger.abrirConexao();
         Autenticacao autenticacao = null;
-        String sql = "SELECT * FROM AUTENTICACAO WHERE LOGIN_FUNC = ? AND PASS_FUNC = ?";
+        String sql = "SELECT * FROM autenticacao WHERE login = ? AND password = ?";
         try{
             PreparedStatement pstm = con.prepareStatement(sql);
             pstm.setString(1,login);
@@ -42,10 +42,10 @@ public class AutenticacaoDAOImpl implements AutenticacaoDAO{
             ResultSet result = pstm.executeQuery();
             if(result.first()){
                 autenticacao = new Autenticacao();
-                autenticacao.setLogin(result.getString("LOGIN_FUNC"));
-                autenticacao.setPass(result.getString("PASS_FUNC"));
-                autenticacao.setFunCpf(result.getString("FUN_CPF"));
-                autenticacao.setPrimeiroAcesso(result.getString("PRIMEIRO_ACESSO"));               
+                autenticacao.setLogin(result.getString("login"));
+                autenticacao.setPass(result.getString("password"));
+                autenticacao.setNrDocumento_func(result.getString("nr_documento"));
+                autenticacao.setPrimeiroAcesso(result.getString("primeiro_acesso"));               
             }
             return autenticacao; 
         }catch(SQLException e){
@@ -65,12 +65,12 @@ public class AutenticacaoDAOImpl implements AutenticacaoDAO{
     @Override
     public void criarCredenciais(Autenticacao autenticacao) throws AutenticacaoException, ConexaoException, DaoException {
         Connection con = ger.abrirConexao();
-        String sql = "INSERT INTO AUTENTICACAO (LOGIN_FUNC,PASS_FUNC,FUN_CPF,PRIMEIRO_ACESSO) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO autenticacao (login,password,nr_documento,primeiro_acesso) VALUES (?,?,?,?)";
         try {
             PreparedStatement pstm = con.prepareStatement(sql);
             pstm.setString(1, autenticacao.getLogin());
             pstm.setString(2, autenticacao.getPass());
-            pstm.setString(3, autenticacao.getFunCpf());
+            pstm.setString(3, autenticacao.getNrDocumento_func());
             pstm.setString(4, autenticacao.getPrimeiroAcesso());
             pstm.executeUpdate();
             Msg.msgSucesso("Credenciais do funcionario foram inseridas no banco de dados", "Sucesso ao inserir credenciais");
@@ -83,19 +83,19 @@ public class AutenticacaoDAOImpl implements AutenticacaoDAO{
     
     /**
      * Metodo para alterar as credenciais.
-     * @param id
+     * @param nrDocumneto
      * @param newPassword
      * @throws ConexaoException
      * @throws DaoException 
      */
     @Override
-    public void alterarPassword(String cpfCli, String newPassword) throws ConexaoException, DaoException{
+    public void alterarPassword(String nrDocumento, String newPassword) throws ConexaoException, DaoException{
         Connection con = ger.abrirConexao();
-        String sql = "UPDATE AUTENTICACAO SET PASS_FUNC = ?, PRIMEIRO_ACESSO = 'N' WHERE FUN_CPF = ? ";
+        String sql = "UPDATE autenticacao SET password = ?, primeiro_acesso = 'N' WHERE nr_documento = ? ";
         try { 
             PreparedStatement pstm = con.prepareStatement(sql);
             pstm.setString(1, newPassword);
-            pstm.setString(2, cpfCli);
+            pstm.setString(2, nrDocumento);
             pstm.executeUpdate(); 
             Msg.msgSucesso("Senha alterada com sucesso", "Sucesso ao alterar");
         } catch (SQLException ex) {

@@ -9,7 +9,7 @@ import projeto.negocio.classesBasicas.Autenticacao;
 
 /**
  *
- * @author Mario
+ * @author 
  */
 public class RegraAutenticacao {
     
@@ -30,8 +30,8 @@ public class RegraAutenticacao {
         if(autenticacao.getPass().isEmpty() || autenticacao.getPass() == null){
             throw new AutenticacaoException("Password não pode ser nulo");
         }
-        if(autenticacao.getFunCpf().isEmpty() || autenticacao.getFunCpf() == null){
-            throw new AutenticacaoException("CPF do cliente nao pode ser deixado nulo");
+        if(autenticacao.getNrDocumento_func().isEmpty() || autenticacao.getNrDocumento_func() == null){
+            throw new AutenticacaoException("Número do documento do cliente nao pode ser deixado nulo");
         }
         if(autenticacao.getPrimeiroAcesso().isEmpty() || autenticacao.getPrimeiroAcesso() == null || autenticacao.getPrimeiroAcesso().length() > 1){
             throw new AutenticacaoException("Primeiro Acesso inválido");
@@ -100,16 +100,16 @@ public class RegraAutenticacao {
      * Metodo para alterar a senha.
      * @param oldPass
      * @param newPass
-     * @param cpfCli
+     * @param nrDocumento
      * @throws AutenticacaoException
      * @throws ConexaoException
      * @throws DaoException 
      */
-    public void alterarSenha(String oldPass, String newPass, String cpfCli) throws AutenticacaoException, ConexaoException, DaoException{
+    public void alterarSenha(String oldPass, String newPass, String nrDocumento) throws AutenticacaoException, ConexaoException, DaoException{
         try{
-            Autenticacao autenticacao = autenDao.checarAutenticacao(cpfCli,oldPass);
+            Autenticacao autenticacao = autenDao.checarAutenticacao(nrDocumento,oldPass);
             if(autenticacao != null){
-                autenDao.alterarPassword(cpfCli, newPass);
+                autenDao.alterarPassword(nrDocumento, newPass);
             }else{
                 throw new AutenticacaoException("A senha anterior está incorreta! Por favor, alterar as credenciais.");
             }

@@ -24,6 +24,7 @@ public class TelaConsulta extends javax.swing.JFrame {
      */
     public TelaConsulta() {
         initComponents();
+        preencherComboBox();
     }
 
     /**
@@ -47,18 +48,17 @@ public class TelaConsulta extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaDescricaoConsulta = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
-        txtNomeVetConsulta = new javax.swing.JTextField();
+        cboVeterinario = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Consulta");
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 204));
-
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Consulta ");
+
+        consulta.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("Nome Animal :");
@@ -66,6 +66,9 @@ public class TelaConsulta extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("Data Consulta :");
 
+        btnCadastrarConsulta.setBackground(new java.awt.Color(0, 153, 0));
+        btnCadastrarConsulta.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnCadastrarConsulta.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastrarConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projeto/gui/icones/salvar_1.png"))); // NOI18N
         btnCadastrarConsulta.setText("Salvar");
         btnCadastrarConsulta.addActionListener(new java.awt.event.ActionListener() {
@@ -96,7 +99,7 @@ public class TelaConsulta extends javax.swing.JFrame {
             consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(consultaLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(consultaLayout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(71, 71, 71)
@@ -114,7 +117,7 @@ public class TelaConsulta extends javax.swing.JFrame {
                         .addGap(47, 47, 47)
                         .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnCadastrarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNomeVetConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(cboVeterinario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
         consultaLayout.setVerticalGroup(
@@ -133,12 +136,12 @@ public class TelaConsulta extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
-                .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNomeVetConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
+                .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(cboVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
                 .addComponent(btnCadastrarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -183,7 +186,7 @@ public class TelaConsulta extends javax.swing.JFrame {
         consulta.setDataConsulta(txtDataConsulta.getText());
         consulta.setDescricaoConsulta(txtAreaDescricaoConsulta.getText());
         consulta.setNomeAnimal(txtNomeAnimal.getText());
-        consulta.setNomeVeterinario(txtNomeVetConsulta.getText());
+        consulta.setNomeVeterinario(cboVeterinario.getSelectedItem().toString());
         /**
          * Instanciando uma nova fachada para tratar a manipulacao dos dados.
          */
@@ -196,7 +199,7 @@ public class TelaConsulta extends javax.swing.JFrame {
             txtDataConsulta.setText("");
             txtAreaDescricaoConsulta.setText("");
             txtNomeAnimal.setText("");
-            txtNomeVetConsulta.setText("");
+            cboVeterinario.setSelectedIndex(WIDTH);
             
         } catch (RegraExceptionConsulta e){
             Msg.msgErro(e.getMessage(), "Erro ao Marcar Consulta");
@@ -253,6 +256,7 @@ public class TelaConsulta extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrarConsulta;
+    private javax.swing.JComboBox<String> cboVeterinario;
     private javax.swing.JPanel consulta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -264,6 +268,9 @@ public class TelaConsulta extends javax.swing.JFrame {
     private javax.swing.JTextArea txtAreaDescricaoConsulta;
     private javax.swing.JFormattedTextField txtDataConsulta;
     private javax.swing.JTextField txtNomeAnimal;
-    private javax.swing.JTextField txtNomeVetConsulta;
     // End of variables declaration//GEN-END:variables
+
+    private void preencherComboBox() {
+       
+    }
 }

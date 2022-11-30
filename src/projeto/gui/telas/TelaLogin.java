@@ -169,10 +169,10 @@ public class TelaLogin extends javax.swing.JFrame {
             if(autenticacao != null){
 //                Msg.msgSucesso("Login Efetuado com sucesso, Bem vindo(a) ao sistema da clinica!", "Login bem sucedido!");
                 if(autenticacao.getPrimeiroAcesso().equals("Y")){
-                    new TelaChangePassword(autenticacao.getFunCpf()).setVisible(true);
+                    new TelaChangePassword(autenticacao.getNrDocumento_func()).setVisible(true);
                     this.dispose();
                 }else{
-                    new TelaPrincipal(autenticacao.getFunCpf()).setVisible(true);
+                    new TelaPrincipal(autenticacao.getNrDocumento_func()).setVisible(true);
                     this.dispose();
                 }
             }else{

@@ -37,7 +37,7 @@ public class FuncionarioDAOImpl implements FuncionarioDAO{
     public void inserir(Funcionario funcionario) throws DaoException, ConexaoException {
         
         Connection con = ger.abrirConexao();
-        String sql = "INSERT INTO FUNCIONARIO (nome,sexo,cargo,tipo_documento,nr_documento,telefone,telefone_2,email,bairro,avenida,rua) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO funcionario (nome,sexo,cargo,tipo_documento,nr_documento,telefone,telefone_2,email,bairro,avenida,rua) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement pstm = con.prepareStatement(sql);
             pstm.setString(1, funcionario.getNome());
@@ -84,6 +84,7 @@ public class FuncionarioDAOImpl implements FuncionarioDAO{
             pstm.setString(9, funcionario.getBairro());
             pstm.setString(10, funcionario.getAvenida());
             pstm.setString(11, funcionario.getRua());
+            pstm.setInt(12,funcionario.getIdFuncionario());
             pstm.executeUpdate(); 
             Msg.msgSucesso("Funcionario alterado com sucesso", "Sucesso ao alterar");
         } catch (SQLException ex) {
@@ -137,11 +138,12 @@ public class FuncionarioDAOImpl implements FuncionarioDAO{
                 func = new Funcionario();
                 func.setIdFuncionario(result.getInt("idFuncionario"));
                 func.setNome(result.getString("nome"));
-                func.setNome(result.getString("sexo"));
+                func.setSexo(result.getString("sexo"));
+                func.setCargo(result.getString("cargo"));
                 func.setTipoDocumento(result.getString("tipo_documento"));
                 func.setNrDocumento(result.getString("nr_documento"));
-                func.setTelefone(result.getString("telfone"));
-                func.setTelefone2(result.getString("telfone_2"));
+                func.setTelefone(result.getString("telefone"));
+                func.setTelefone2(result.getString("telefone_2"));
                 func.setEmail(result.getString("email"));
                 func.setBairro(result.getString("bairro"));
                 func.setAvenida(result.getString("avenida"));
@@ -166,7 +168,7 @@ public class FuncionarioDAOImpl implements FuncionarioDAO{
         Connection con = ger.abrirConexao();
         Funcionario func;
         ArrayList <Funcionario> ListaFunc = new ArrayList();
-        String sql = "SELECT * FROM FUNCIONARIO";
+        String sql = "SELECT * FROM funcionario";
 
        try{
             PreparedStatement pstm = con.prepareStatement(sql);
@@ -175,11 +177,12 @@ public class FuncionarioDAOImpl implements FuncionarioDAO{
                 func = new Funcionario();
                 func.setIdFuncionario(result.getInt("idFuncionario"));
                 func.setNome(result.getString("nome"));
-                func.setNome(result.getString("sexo"));
+                func.setSexo(result.getString("sexo"));
+                 func.setCargo(result.getString("cargo"));
                 func.setTipoDocumento(result.getString("tipo_documento"));
                 func.setNrDocumento(result.getString("nr_documento"));
-                func.setTelefone(result.getString("telfone"));
-                func.setTelefone2(result.getString("telfone_2"));
+                func.setTelefone(result.getString("telefone"));
+                func.setTelefone2(result.getString("telefone_2"));
                 func.setEmail(result.getString("email"));
                 func.setBairro(result.getString("bairro"));
                 func.setAvenida(result.getString("avenida"));
@@ -205,14 +208,14 @@ public class FuncionarioDAOImpl implements FuncionarioDAO{
             ResultSet result = pstm.executeQuery();
             while(result.next()){
                 func = new Funcionario();
-                func = new Funcionario();
                 func.setIdFuncionario(result.getInt("idFuncionario"));
                 func.setNome(result.getString("nome"));
-                func.setNome(result.getString("sexo"));
+                func.setSexo(result.getString("sexo"));
+                func.setCargo(result.getString("cargo"));
                 func.setTipoDocumento(result.getString("tipo_documento"));
                 func.setNrDocumento(result.getString("nr_documento"));
-                func.setTelefone(result.getString("telfone"));
-                func.setTelefone2(result.getString("telfone_2"));
+                func.setTelefone(result.getString("telefone"));
+                func.setTelefone2(result.getString("telefone_2"));
                 func.setEmail(result.getString("email"));
                 func.setBairro(result.getString("bairro"));
                 func.setAvenida(result.getString("avenida"));
