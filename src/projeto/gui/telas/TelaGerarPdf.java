@@ -191,7 +191,7 @@ public class TelaGerarPdf extends javax.swing.JFrame {
         
         
         try {
-            PdfWriter.getInstance(doc, new FileOutputStream("Documento.PDF"));
+            PdfWriter.getInstance(doc, new FileOutputStream("Relatorio_de_pesquisa_EXAMES.PDF"));
             doc.open();
             doc.setPageSize(PageSize.A4);
             try {

@@ -5,6 +5,33 @@
  */
 package projeto.gui.telas;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import projeto.erro.ConexaoException;
+import projeto.erro.DaoException;
+import projeto.erro.RegraExceptionConsulta;
+import projeto.erro.RegraExceptionExame;
+import projeto.negocio.classesBasicas.Consulta;
+import projeto.negocio.classesBasicas.Exame;
+import projeto.negocio.fachada.FachadaConsulta;
+import projeto.negocio.fachada.FachadaExame;
+import projeto.util.Msg;
+
 /**
  *
  * @author daien
@@ -230,10 +257,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuItemRelatConsultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projeto/gui/icones/relatorios2.png"))); // NOI18N
         jMenuItemRelatConsultas.setText("Relatorio de consultas");
+        jMenuItemRelatConsultas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemRelatConsultasActionPerformed(evt);
+            }
+        });
         jMenuRelatorios.add(jMenuItemRelatConsultas);
 
         jMenuItemRelatExames.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projeto/gui/icones/relatorios2.png"))); // NOI18N
         jMenuItemRelatExames.setText("Relatorio de exames");
+        jMenuItemRelatExames.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemRelatExamesActionPerformed(evt);
+            }
+        });
         jMenuRelatorios.add(jMenuItemRelatExames);
 
         jMenuBarNavPrincipal.add(jMenuRelatorios);
@@ -353,6 +390,111 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
         System.exit(0);
     }//GEN-LAST:event_sairActionPerformed
+
+    private void jMenuItemRelatConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRelatConsultasActionPerformed
+         /*
+        *Gerar relatorio em PDF
+        */
+        Document doc = new Document();
+        FachadaConsulta fachada = new FachadaConsulta();
+        Date dataAtual = new Date();
+        SimpleDateFormat dtFormatada = new SimpleDateFormat("dd/MM/YYYY HH:MM:ss");
+        String data = dtFormatada.format(dataAtual);
+    
+  
+        ArrayList<Consulta> listConsultas =  new ArrayList <Consulta>();
+       
+            try {
+                listConsultas = fachada.listarConsulta();
+            } catch (RegraExceptionConsulta | ConexaoException | DaoException ex) {
+                Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+       
+        
+        try {
+            PdfWriter.getInstance(doc, new FileOutputStream("Relatorio_de_pesquisa_CONSULTAS.PDF"));
+            doc.open();
+            doc.setPageSize(PageSize.A4);
+            try {
+                doc.add(new Paragraph("----------------------------------------------CLINICA VETERINARIA---------------------------------"));
+            } catch (DocumentException ex) {
+                Logger.getLogger(TelaGerarPdf.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            doc.add(new Paragraph("Data : "+ data));
+            doc.add(new Paragraph("Usuario: " + System.getProperty("user.name")));
+            doc.add(new Paragraph("-------------------------------------RELATORIO DE  CONSULTAS--------------------------------------------"));
+            for (Iterator<Consulta> it = listConsultas.iterator(); it.hasNext();) {
+                Consulta consulta = it.next();
+                doc.add(new Paragraph("Nome do animal: " + consulta.getNomeAnimal()));
+                doc.add(new Paragraph("Data da consulta : " + consulta.getDataConsulta()));
+                doc.add(new Paragraph("Descrição da consulta: " + consulta.getDescricaoConsulta()));
+                doc.add(new Paragraph("Nome Veterinario: " + consulta.getNomeVeterinario()));
+                doc.add(new Paragraph("-------------------------------------------------------------------------------------------------------"));
+            }
+        } catch (FileNotFoundException | DocumentException ex) {
+            Msg.msgErro(ex.getMessage(), "Erro ao gerar PDF");
+        }finally{
+            doc.close();
+        }
+        try{
+            Desktop.getDesktop().open(new File("Relatorio_de_pesquisa_CONSULTAS.PDF"));
+        } catch (IOException ex) {
+            Msg.msgErro(ex.getMessage(), "Erro ao gerar PDF");
+        }  
+    }//GEN-LAST:event_jMenuItemRelatConsultasActionPerformed
+
+    private void jMenuItemRelatExamesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRelatExamesActionPerformed
+          
+        /*
+        *Gerar relatorio em PDF
+        */
+        Document doc = new Document();
+        FachadaExame fachada = new FachadaExame();
+        Date dataAtual = new Date();
+        SimpleDateFormat dtFormatada = new SimpleDateFormat("dd/MM/YYYY HH:MM:ss");
+        String data = dtFormatada.format(dataAtual);
+    
+  
+        ArrayList<Exame> listExame =  new ArrayList <Exame>();
+        try {
+            listExame = fachada.listarExames();
+        } catch (RegraExceptionExame | ConexaoException | DaoException ex) {
+            Logger.getLogger(TelaGerarPdf.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+        
+        try {
+            PdfWriter.getInstance(doc, new FileOutputStream("Relatorio_de_pesquisa_EXAMES.PDF"));
+            doc.open();
+            doc.setPageSize(PageSize.A4);
+            try {
+                doc.add(new Paragraph("----------------------------------------------CLINICA VETERINARIA---------------------------------"));
+            } catch (DocumentException ex) {
+                Logger.getLogger(TelaGerarPdf.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            doc.add(new Paragraph("Data : "+ data));
+            doc.add(new Paragraph("Usuario: " + System.getProperty("user.name")));
+            doc.add(new Paragraph("-------------------------------------RELATORIO DE EXAMES-------------------------------------"));
+            for (Iterator<Exame> it = listExame.iterator(); it.hasNext();) {
+                Exame exame = it.next();
+                doc.add(new Paragraph("Nome do animal: " + exame.getNomeAnimal()));
+                doc.add(new Paragraph("Descricao do exame : " + exame.getExameDescricao()));
+                doc.add(new Paragraph("Data do exame: " + exame.getDataExame()));
+                doc.add(new Paragraph("Nome Veterinario: " + exame.getVeterinarioExame()));
+                doc.add(new Paragraph("-------------------------------------------------------------------------------------------------------"));
+            }
+        } catch (FileNotFoundException | DocumentException ex) {
+            Msg.msgErro(ex.getMessage(), "Erro ao gerar PDF");
+        }finally{
+            doc.close();
+        }
+        try{
+            Desktop.getDesktop().open(new File("Relatorio_de_pesquisa_EXAMES.PDF"));
+        } catch (IOException ex) {
+            Msg.msgErro(ex.getMessage(), "Erro ao gerar PDF");
+        }  
+    }//GEN-LAST:event_jMenuItemRelatExamesActionPerformed
     
     /**
      * @param args the command line arguments
