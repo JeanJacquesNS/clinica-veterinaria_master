@@ -115,10 +115,10 @@ public class RegraFuncionario {
      * @throws ConexaoException
      * @throws DaoException 
      */
-    public Funcionario consultarFuncionario(String cpf) throws RegraExceptionFuncionario, ConexaoException, DaoException{
+    public Funcionario consultarFuncionario(String nrDocumento) throws RegraExceptionFuncionario, ConexaoException, DaoException{
         Funcionario func;
         try{
-            func = daoFunc.consultar(cpf);
+            func = daoFunc.consultar(nrDocumento);
         }catch(ConexaoException | DaoException e){
             throw new RegraExceptionFuncionario(e.getMessage());
         }
@@ -139,5 +139,11 @@ public class RegraFuncionario {
             throw new RegraExceptionFuncionario(e.getMessage());
         }      
     }
-    
+    public ArrayList<Funcionario> consultarFuncionarios(String cargo)throws RegraExceptionFuncionario, ConexaoException, DaoException{
+        try{
+            return daoFunc.consultarFuncionarios(cargo);
+        }catch(ConexaoException | DaoException e){
+            throw new RegraExceptionFuncionario(e.getMessage());
+        }      
+    }
 }

@@ -7,10 +7,13 @@ package projeto.gui.telas;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import projeto.erro.ConexaoException;
 import projeto.erro.DaoException;
 import projeto.erro.RegraExceptionConsulta;
+import projeto.erro.RegraExceptionFuncionario;
 import projeto.negocio.classesBasicas.Consulta;
 import projeto.negocio.fachada.FachadaConsulta;
+import projeto.negocio.fachada.FachadaFuncionario;
 import projeto.util.Msg;
 
 /**
@@ -46,7 +49,7 @@ public class TelaConsulta extends javax.swing.JFrame {
         txtDataConsulta = new javax.swing.JFormattedTextField();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtAreaDescricaoConsulta = new javax.swing.JTextArea();
+        txtDescricao = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
         cboVeterinario = new javax.swing.JComboBox<>();
 
@@ -86,9 +89,9 @@ public class TelaConsulta extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Descrição :");
 
-        txtAreaDescricaoConsulta.setColumns(20);
-        txtAreaDescricaoConsulta.setRows(5);
-        jScrollPane1.setViewportView(txtAreaDescricaoConsulta);
+        txtDescricao.setColumns(20);
+        txtDescricao.setRows(5);
+        jScrollPane1.setViewportView(txtDescricao);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("Veterinario(a) :");
@@ -184,7 +187,7 @@ public class TelaConsulta extends javax.swing.JFrame {
          */
         Consulta consulta = new Consulta();
         consulta.setDataConsulta(txtDataConsulta.getText());
-        consulta.setDescricaoConsulta(txtAreaDescricaoConsulta.getText());
+        consulta.setDescricaoConsulta(txtDescricao.getText());
         consulta.setNomeAnimal(txtNomeAnimal.getText());
         consulta.setNomeVeterinario(cboVeterinario.getSelectedItem().toString());
         /**
@@ -197,7 +200,7 @@ public class TelaConsulta extends javax.swing.JFrame {
         try{
             fachada.inserir(consulta);
             txtDataConsulta.setText("");
-            txtAreaDescricaoConsulta.setText("");
+            txtDescricao.setText("");
             txtNomeAnimal.setText("");
             cboVeterinario.setSelectedIndex(WIDTH);
             
@@ -265,12 +268,20 @@ public class TelaConsulta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea txtAreaDescricaoConsulta;
     private javax.swing.JFormattedTextField txtDataConsulta;
+    private javax.swing.JTextArea txtDescricao;
     private javax.swing.JTextField txtNomeAnimal;
     // End of variables declaration//GEN-END:variables
 
     private void preencherComboBox() {
-       
+        try {
+            cboVeterinario.removeAllItems();
+            FachadaFuncionario funcionario=new FachadaFuncionario();
+            (funcionario.consultarFuncionarios("Veterinario")).forEach((t) -> {
+                cboVeterinario.addItem(t.getNome());
+            });
+        } catch (RegraExceptionFuncionario | ConexaoException | DaoException ex) {
+            Logger.getLogger(TelaConsulta.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

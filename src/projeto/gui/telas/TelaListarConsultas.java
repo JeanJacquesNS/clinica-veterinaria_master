@@ -62,6 +62,8 @@ public class TelaListarConsultas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         jTableConsultas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -117,6 +119,9 @@ public class TelaListarConsultas extends javax.swing.JFrame {
             }
         });
 
+        jButtonCancelar.setBackground(new java.awt.Color(255, 0, 0));
+        jButtonCancelar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projeto/gui/icones/excluir.png"))); // NOI18N
         jButtonCancelar.setText("Cancelar");
         jButtonCancelar.setEnabled(false);
@@ -126,6 +131,9 @@ public class TelaListarConsultas extends javax.swing.JFrame {
             }
         });
 
+        jButtonSalvar.setBackground(new java.awt.Color(0, 153, 0));
+        jButtonSalvar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonSalvar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projeto/gui/icones/salvar_1.png"))); // NOI18N
         jButtonSalvar.setText("Salvar");
         jButtonSalvar.setEnabled(false);
@@ -135,6 +143,9 @@ public class TelaListarConsultas extends javax.swing.JFrame {
             }
         });
 
+        jButtonDeletar.setBackground(new java.awt.Color(255, 0, 0));
+        jButtonDeletar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonDeletar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projeto/gui/icones/trash.gif"))); // NOI18N
         jButtonDeletar.setText("Deletar");
         jButtonDeletar.setEnabled(false);
@@ -226,10 +237,9 @@ public class TelaListarConsultas extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel2.setToolTipText("");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Listar Consultas Agendadas.");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

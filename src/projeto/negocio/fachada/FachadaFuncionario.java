@@ -10,7 +10,7 @@ import projeto.negocio.regras.RegraFuncionario;
 
 /**
  *
- * @author Mario
+ * @author 
  */
 public class FachadaFuncionario {
     
@@ -54,14 +54,14 @@ public class FachadaFuncionario {
     
     /**
      * Metodo para consultar um funcionario pelo CPF
-     * @param cpf
+     * @param nrDocumento
      * @return retorna um funcionario
      * @throws RegraExceptionFuncionario
      * @throws ConexaoException
      * @throws DaoException 
      */
-    public Funcionario consultarFuncionario(String cpf) throws RegraExceptionFuncionario, ConexaoException, DaoException{
-        Funcionario funcionario  = regraFunc.consultarFuncionario(cpf);
+    public Funcionario consultarFuncionario(String nrDocumento) throws RegraExceptionFuncionario, ConexaoException, DaoException{
+        Funcionario funcionario  = regraFunc.consultarFuncionario(nrDocumento);
         return funcionario;
     }
     
@@ -74,6 +74,9 @@ public class FachadaFuncionario {
      */
     public ArrayList<Funcionario> listarFuncionarios() throws RegraExceptionFuncionario, ConexaoException, DaoException{
         return regraFunc.listarFuncionarios();
+    }
+     public ArrayList<Funcionario> consultarFuncionarios(String cargo) throws RegraExceptionFuncionario, ConexaoException, DaoException{
+        return regraFunc.consultarFuncionarios(cargo);
     }
     
 }

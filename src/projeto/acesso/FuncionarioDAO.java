@@ -51,4 +51,5 @@ public interface FuncionarioDAO {
      * @throws projeto.erro.DaoException 
      */
     public ArrayList<Funcionario> consultarFuncionarios() throws ConexaoException, DaoException;
+    public ArrayList<Funcionario> consultarFuncionarios(String cargo)throws ConexaoException,DaoException;
 }

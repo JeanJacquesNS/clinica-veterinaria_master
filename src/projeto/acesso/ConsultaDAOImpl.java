@@ -34,7 +34,7 @@ public class ConsultaDAOImpl implements ConsultaDAO{
         
         Connection con = ger.abrirConexao();
         Consulta consulta = null;
-        String sql = "SELECT * FROM CONSULTA WHERE idConsulta=?";
+        String sql = "SELECT * FROM consulta WHERE idConsulta=?";
         try{
             PreparedStatement pstm = con.prepareStatement(sql);
             pstm.setInt(1,idConsulta);
@@ -42,7 +42,7 @@ public class ConsultaDAOImpl implements ConsultaDAO{
             if(result.first()){
                 consulta = new Consulta();
                 consulta.setIdConsulta(result.getInt("idConsulta"));
-                consulta.setDataConsulta(result.getString("data"));
+                consulta.setDataConsulta(result.getString("data_consulta"));
                 consulta.setDescricaoConsulta(result.getString("descricao"));
                 consulta.setNomeAnimal(result.getString("nome_animal"));
                 consulta.setNomeVeterinario(result.getString("nome_veterinario"));
@@ -65,11 +65,11 @@ public class ConsultaDAOImpl implements ConsultaDAO{
     public void inserir(Consulta consulta) throws ConexaoException, DaoException {
        
         Connection con = ger.abrirConexao();
-        String sql = "INSERT INTO consulta (desricao,data,nome_animal,nome_veterinario) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO consulta (data_consulta,descricao,nome_animal,nome_veterinario) VALUES (?,?,?,?)";
         try {
             PreparedStatement pstm = con.prepareStatement(sql);
-            pstm.setString(1, consulta.getDescricaoConsulta());
-            pstm.setString(2, consulta.getDataConsulta());
+            pstm.setString(1, consulta.getDataConsulta());
+            pstm.setString(2, consulta.getDescricaoConsulta());
             pstm.setString(3, consulta.getNomeAnimal());
             pstm.setString(4, consulta.getNomeVeterinario());
             pstm.executeUpdate();
@@ -83,18 +83,18 @@ public class ConsultaDAOImpl implements ConsultaDAO{
 
     /**
      * Metodo para deletar uma consulta do banco de dados
-     * @param codTratamento
+     * @param idConsulta
      * @throws ConexaoException
      * @throws DaoException 
      */
     @Override
-    public void deletar(int codTratamento) throws ConexaoException, DaoException {
+    public void deletar(int idConsulta) throws ConexaoException, DaoException {
        
         Connection con = ger.abrirConexao();
-        String sql = "DELETE FROM CONSULTA WHERE idConsulta = ?";
+        String sql = "DELETE FROM consulta WHERE idConsulta = ?";
         try {
             PreparedStatement pstm = con.prepareStatement(sql);
-            pstm.setInt(1, codTratamento);
+            pstm.setInt(1, idConsulta);
             pstm.executeUpdate();
             Msg.msgSucesso("Consulta deletada do BD com sucesso!", "Sucesso ao deletar Consulta");
         } catch (SQLException ex) {
@@ -114,7 +114,7 @@ public class ConsultaDAOImpl implements ConsultaDAO{
     public void atualizar(Consulta consulta) throws ConexaoException, DaoException {
         
         Connection con = ger.abrirConexao(); 
-        String sql = "UPDATE consulta SET data = ?,descricao = ?, nome_animal = ?, nome_veterinario = ? WHERE idConsulta = ?";
+        String sql = "UPDATE consulta SET data_consulta = ?,descricao = ?, nome_animal = ?, nome_veterinario = ? WHERE idConsulta = ?";
         try { 
             PreparedStatement pstm = con.prepareStatement(sql);
             pstm.setString(1, consulta.getDataConsulta());
@@ -141,7 +141,7 @@ public class ConsultaDAOImpl implements ConsultaDAO{
     public ArrayList<Consulta> listar() throws ConexaoException, DaoException {
        
         Connection con = ger.abrirConexao();
-        String sql ="SELECT * FROM CONSULTA";
+        String sql ="SELECT * FROM consulta";
         ArrayList <Consulta> Lista = new ArrayList();
         Consulta consulta;
        try{
@@ -150,10 +150,10 @@ public class ConsultaDAOImpl implements ConsultaDAO{
             while(result.next()){
                 consulta = new Consulta();
                 consulta.setIdConsulta(result.getInt("idConsulta"));
-                consulta.setDataConsulta(result.getString("data"));
+                consulta.setDataConsulta(result.getString("data_consulta"));
+                consulta.setDescricaoConsulta(result.getString("descricao"));
                 consulta.setNomeAnimal(result.getString("nome_animal"));
                 consulta.setNomeVeterinario(result.getString("nome_veterinario"));
-                consulta.setDescricaoConsulta(result.getString("descricao"));
                 Lista.add(consulta);
             }
            return Lista; 

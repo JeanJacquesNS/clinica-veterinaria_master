@@ -171,3 +171,13 @@ create table autenticacao
     constraint autenticacao_funcionario_nr_documento_fk
         foreign key (nr_documento) references funcionario (nr_documento)
 );
+create table consulta
+(
+    idConsulta       int auto_increment
+        primary key,
+    data_consulta    varchar(10)  not null,
+    descricao        varchar(200) not null,
+    nome_animal      varchar(50)  not null,
+    nome_veterinario varchar(50)  not null
+);
+
