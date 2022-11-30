@@ -46,7 +46,7 @@ public class RegraConsulta {
      */
     public void verificaDuplicidade(Consulta consulta)throws RegraExceptionConsulta, DaoException{
         try{
-            Consulta x = dao.pesquisar(consulta.getCodigoConsulta());
+            Consulta x = dao.pesquisar(consulta.getIdConsulta());
             if (x != null) {
                 throw new RegraExceptionConsulta("Consulta já existe.");
             }

@@ -218,9 +218,9 @@ public class TelaListarConsultas extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel3)))
                         .addGap(18, 18, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(txtNomeVetConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNomeVetConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))))
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -292,7 +292,7 @@ public class TelaListarConsultas extends javax.swing.JFrame {
 
         Consulta consulta = new Consulta();
         FachadaConsulta fachada = new FachadaConsulta();
-        consulta.setCodigoConsulta(Integer.parseInt(txtIdConsulta.getText()));
+        consulta.setIdConsulta(Integer.parseInt(txtIdConsulta.getText()));
         consulta.setNomeAnimal(txtNomeAnimal.getText());
         consulta.setNomeVeterinario(txtNomeVetConsulta.getText());
         consulta.setDescricaoConsulta(txtAreaDescricaoConsulta.getText());
@@ -352,7 +352,7 @@ public class TelaListarConsultas extends javax.swing.JFrame {
         try {
             Consulta con = fachada.pesquisar(codigoConsulta);
             
-            txtIdConsulta.setText(String.valueOf(con.getCodigoConsulta()));
+            txtIdConsulta.setText(String.valueOf(con.getIdConsulta()));
             txtNomeAnimal.setText(con.getNomeAnimal());
             txtNomeVetConsulta.setText(con.getNomeVeterinario());
             txtDataConsulta.setText(con.getDataConsulta());
@@ -378,7 +378,7 @@ public class TelaListarConsultas extends javax.swing.JFrame {
         try {
             listaCon = fachadaConsulta.listarConsulta();
             for(Consulta lConsulta : listaCon){
-                data.add(new Object[]{lConsulta.getCodigoConsulta(),lConsulta.getNomeAnimal(),lConsulta.getDescricaoConsulta(),lConsulta.getDataConsulta(),lConsulta.getNomeVeterinario()});
+                data.add(new Object[]{lConsulta.getIdConsulta(),lConsulta.getNomeAnimal(),lConsulta.getDescricaoConsulta(),lConsulta.getDataConsulta(),lConsulta.getNomeVeterinario()});
             }
         } catch (RegraExceptionConsulta | ConexaoException | DaoException ex) {
             Msg.msgErro("Não foi possivel listar as consultas", "Erro ao listar as consultas");

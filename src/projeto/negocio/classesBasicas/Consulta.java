@@ -2,87 +2,58 @@ package projeto.negocio.classesBasicas;
 
 /**
  *
- * @author andre
+ * @author 
  */
 public class Consulta {
     
-    private int codigoConsulta;
+    private int IdConsulta;
     private String dataConsulta;
     private String descricaoConsulta;
     private String nomeAnimal;
     private String nomeVeterinario;
 
-    /**
-     * @return the codigoConsulta
-     */
-    public int getCodigoConsulta() {
-        return codigoConsulta;
+    public Consulta() {
     }
 
-    /**
-     * @param codigoConsulta the codigoConsulta to set
-     */
-    public void setCodigoConsulta(int codigoConsulta) {
-        this.codigoConsulta = codigoConsulta;
+    public int getIdConsulta() {
+        return IdConsulta;
     }
 
-    /**
-     * @return the data
-     */
+    public void setIdConsulta(int IdConsulta) {
+        this.IdConsulta = IdConsulta;
+    }
+
     public String getDataConsulta() {
         return dataConsulta;
     }
 
-    /**
-     * @param data the data to set
-     */
-    public void setDataConsulta(String data) {
-        this.dataConsulta = data;
+    public void setDataConsulta(String dataConsulta) {
+        this.dataConsulta = dataConsulta;
     }
 
-    /**
-     * @return the diagnostico
-     */
     public String getDescricaoConsulta() {
         return descricaoConsulta;
     }
 
-    /**
-     * @param descricao
-     */
-    public void setDescricaoConsulta(String descricao) {
-        this.descricaoConsulta = descricao;
+    public void setDescricaoConsulta(String descricaoConsulta) {
+        this.descricaoConsulta = descricaoConsulta;
     }
 
-    /**
-     * @return the nomeAnimal
-     */
     public String getNomeAnimal() {
         return nomeAnimal;
     }
 
-    /**
-     * @param nomeAnimal the nomeAnimal to set
-     */
     public void setNomeAnimal(String nomeAnimal) {
         this.nomeAnimal = nomeAnimal;
     }
 
-    /**
-     * @return the nomeVeterinario
-     */
     public String getNomeVeterinario() {
         return nomeVeterinario;
     }
 
-    /**
-     * @param nomeVeterinario the nomeVeterinario to set
-     */
     public void setNomeVeterinario(String nomeVeterinario) {
         this.nomeVeterinario = nomeVeterinario;
     }
 
-
-    
     
 }

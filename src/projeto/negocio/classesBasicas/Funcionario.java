@@ -7,101 +7,123 @@ package projeto.negocio.classesBasicas;
 
 /**
  *
- * @author andre
+ * @author 
  */
 public class Funcionario {
     
-    private int codigoFuncionario;
+    private int idFuncionario;
     private String nome;
-    private String cpf;
+    private String tipoDocumento;
+    private String nrDocumento;
+    private String bairro;
+    private String avenida;
+    private String rua;
     private String telefone;
+    private String telefone2;
+    private String sexo;
     private String cargo;
     private String email;
 
-    /**
-     * @return the codigoFuncionario
-     */
-    public int getCodigoFuncionario() {
-        return codigoFuncionario;
+    public Funcionario() {
     }
 
-    /**
-     * @param codigoFuncionario the codigoFuncionario to set
-     */
-    public void setCodigoFuncionario(int codigoFuncionario) {
-        this.codigoFuncionario = codigoFuncionario;
+    public int getIdFuncionario() {
+        return idFuncionario;
     }
 
-    /**
-     * @return the nome
-     */
+    public void setIdFuncionario(int idFuncionario) {
+        this.idFuncionario = idFuncionario;
+    }
+
     public String getNome() {
         return nome;
     }
 
-    /**
-     * @param nome the nome to set
-     */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    /**
-     * @return the cpf
-     */
-    public String getCpf() {
-        return cpf;
+    public String getTipoDocumento() {
+        return tipoDocumento;
     }
 
-    /**
-     * @param cpf the cpf to set
-     */
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setTipoDocumento(String tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
     }
 
-    /**
-     * @return the telefone
-     */
+    public String getNrDocumento() {
+        return nrDocumento;
+    }
+
+    public void setNrDocumento(String nrDocumento) {
+        this.nrDocumento = nrDocumento;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getAvenida() {
+        return avenida;
+    }
+
+    public void setAvenida(String avenida) {
+        this.avenida = avenida;
+    }
+
+    public String getRua() {
+        return rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
     public String getTelefone() {
         return telefone;
     }
 
-    /**
-     * @param telefone the telefone to set
-     */
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
-    /**
-     * @return the cargo
-     */
+    public String getTelefone2() {
+        return telefone2;
+    }
+
+    public void setTelefone2(String telefone2) {
+        this.telefone2 = telefone2;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
     public String getCargo() {
         return cargo;
     }
 
-    /**
-     * @param cargo the cargo to set
-     */
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
 
-    /**
-     * @return the email
-     */
     public String getEmail() {
         return email;
     }
 
-    /**
-     * @param email the email to set
-     */
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
+  
     
     
 }
