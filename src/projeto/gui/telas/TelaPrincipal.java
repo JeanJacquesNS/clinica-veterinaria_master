@@ -423,7 +423,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
             doc.add(new Paragraph("Data : "+ data));
             doc.add(new Paragraph("Usuario: " + System.getProperty("user.name")));
-            doc.add(new Paragraph("-------------------------------------RELATORIO DE  CONSULTAS--------------------------------------------"));
+            doc.add(new Paragraph("-------------------------------------RELATORIO DE     CONSULTAS--------------------------------------------"));
             for (Iterator<Consulta> it = listConsultas.iterator(); it.hasNext();) {
                 Consulta consulta = it.next();
                 doc.add(new Paragraph("Nome do animal: " + consulta.getNomeAnimal()));
