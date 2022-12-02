@@ -3,7 +3,7 @@ package projeto.erro;
 
 /**
  *
- * @author Clinica
+ * @author 
  */
 public class DaoException extends Exception{
 

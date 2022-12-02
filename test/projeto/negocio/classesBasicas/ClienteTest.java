@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package projeto.negocio.classesBasicas;
 
+
+import model.VO.Cliente;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -14,7 +10,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Mario
+ * @author 
  */
 public class ClienteTest {
     
@@ -72,7 +68,7 @@ public class ClienteTest {
         System.out.println("getCpf");
         Cliente instance = new Cliente();
         String expResult = "";
-        String result = instance.getCpf();
+        String result = instance.getNrDocumento();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -82,11 +78,11 @@ public class ClienteTest {
      * Test of setCpf method, of class Cliente.
      */
     @Test
-    public void testSetCpf() {
-        System.out.println("setCpf");
-        String cpf = "";
+    public void testSetNrDocumento() {
+        System.out.println("setNrDocumento");
+        String nrDocumento = "";
         Cliente instance = new Cliente();
-        instance.setCpf(cpf);
+        instance.setNrDocumento(nrDocumento);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

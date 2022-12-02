@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Mario
+ * @author 
  */
 public class Msg {
     

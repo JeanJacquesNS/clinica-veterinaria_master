@@ -7,7 +7,7 @@ package projeto.erro;
 
 /**
  *
- * @author Mario
+ * @author 
  */
 public class RegraExceptionFuncionario extends Exception {
     

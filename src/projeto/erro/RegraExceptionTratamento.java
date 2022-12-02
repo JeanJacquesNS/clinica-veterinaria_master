@@ -7,7 +7,7 @@ package projeto.erro;
 
 /**
  *
- * @author camilo
+ * @author 
  */
 public class RegraExceptionTratamento extends Exception {
     

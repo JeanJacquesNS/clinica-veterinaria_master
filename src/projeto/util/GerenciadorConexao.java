@@ -5,7 +5,7 @@ import projeto.erro.ConexaoException;
 
 /**
  *
- * @author Clinica
+ * @author 
  */
 public interface GerenciadorConexao {
     

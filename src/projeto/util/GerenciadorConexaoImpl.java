@@ -8,7 +8,7 @@ import projeto.erro.ConexaoException;
 
 /**
  *
- * @author Clinica
+ * @author 
  */
 public class GerenciadorConexaoImpl implements GerenciadorConexao{
     

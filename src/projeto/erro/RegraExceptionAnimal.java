@@ -2,7 +2,7 @@ package projeto.erro;
 
 /**
  * 
- * @author Geraldo
+ * @author 
  */
  public class RegraExceptionAnimal extends Exception {
   

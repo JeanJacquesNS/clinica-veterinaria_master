@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 /**
  *
- * @author Daiene
+ * @author 
  */
 public class TableClientes extends AbstractTableModel{
     

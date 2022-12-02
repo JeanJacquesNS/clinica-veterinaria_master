@@ -2,7 +2,7 @@ package projeto.erro;
 
 /**
  *
- * @author Mario
+ * @author
  */
 public class RegraExceptionExame extends Exception{
     
